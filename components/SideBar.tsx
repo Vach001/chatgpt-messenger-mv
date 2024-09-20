@@ -20,7 +20,7 @@ function SideBar() {
         onClick={()=>signOut()}
         src={session.user?.image!} 
         alt="No profile picture" 
-        className="h-12 w-12 rounded-full cursor-pointer max-auto mb-2 hover:opacity-50"
+        className="h-12 w-12 rounded-full cursor-pointer mx-auto mb-2 hover:opacity-50"
         />
       )} 
     </div>
