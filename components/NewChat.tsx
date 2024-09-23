@@ -10,12 +10,14 @@ function NewChat() {
   const router = useRouter();
   const { data: session } = useSession();
 
-  const createNewChat = async() => {
+  const createNewChat = async () => {
+    if (!session?.user?.email) return;
+
     const doc = await addDoc(
-      collection(db, 'users', session?.user?.email!, "chats"), 
+      collection(db, "users", session.user.email, "chats"), 
       {
-        userId: session?.user?.email!,
-        createAt: serverTimestamp(),
+        userId: session.user.email,
+        createdAt: serverTimestamp(),
       }
     );
 
@@ -23,7 +25,7 @@ function NewChat() {
   }
   return (
     <div onClick={createNewChat} className="border-gray-700 border chatRow">
-        <PlusIcon className="h-4 w-4"/>
+        <PlusIcon className="h-4 w-4 mr-2"/>
         <p>New Chat</p>
     </div>
   )
