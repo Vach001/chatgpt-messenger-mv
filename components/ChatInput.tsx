@@ -70,7 +70,7 @@ function ChatInput({ chatId }: Props) {
             type="text" 
             placeholder="Type your message here..." />
            
-            <button 
+            <button title= "Send"
             className="bg-[#11A37F] hover:opacity-50 text-white font-bold px-4 py-2 rounded disabled:bg-gray-300 disabled:cursor-not-allowed"
             disabled={!prompt || !session} type="submit">
                 <PaperAirplaneIcon className="h-4 w-4 -rotate-45" />
