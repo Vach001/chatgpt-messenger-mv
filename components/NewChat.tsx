@@ -1,9 +1,9 @@
-'use client'
+"use client";
 
 import { db } from "@/firebase";
-import { PlusIcon } from "@heroicons/react/24/solid"
+import { PlusIcon } from "@heroicons/react/24/solid";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
-import { useSession } from "next-auth/react"
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 function NewChat() {
@@ -14,21 +14,21 @@ function NewChat() {
     if (!session?.user?.email) return;
 
     const doc = await addDoc(
-      collection(db, "users", session.user.email, "chats"), 
+      collection(db, "users", session.user.email, "chats"),
       {
         userId: session.user.email,
         createdAt: serverTimestamp(),
       }
     );
 
-    router.push(`/chat/${doc.id}`)
-  }
+    router.push(`/chat/${doc.id}`);
+  };
   return (
     <div onClick={createNewChat} className="border-gray-700 border chatRow">
-        <PlusIcon className="h-4 w-4 mr-2"/>
-        <p>New Chat</p>
+      <PlusIcon className="h-4 w-4 mr-2" />
+      <p>New Chat</p>
     </div>
-  )
+  );
 }
 
-export default NewChat
+export default NewChat;
