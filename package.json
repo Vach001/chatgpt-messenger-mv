@@ -16,7 +16,7 @@
     "firebase-admin": "^12.5.0",
     "next": "^13.0.0",
     "next-auth": "^4.24.7",
-    "openai": "^4.65.0",
+    "openai": "^4.72.0",
     "react": "^18",
     "react-dom": "^18",
     "react-firebase-hooks": "^5.1.1",
