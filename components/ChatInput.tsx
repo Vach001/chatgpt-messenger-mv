@@ -46,7 +46,10 @@ function ChatInput({ chatId }: Props) {
         "messages"
       ),
       message
-    );
+    ).catch((err) => {
+      console.error("Error writing message to Firestore:", err);
+      toast.error("Failed to save the message.");
+    });
     // Toast notification
     const notification = toast.loading("ChatGPT is thinking...");
 
