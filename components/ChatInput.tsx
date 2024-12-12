@@ -64,21 +64,22 @@ function ChatInput({ chatId }: Props) {
         model,
         session,
       }),
-    }).then((res) => {
-      if (!res.ok) throw new Error("Failed to fetch response from API");
-      return res.json();
     })
-    .then(() => {
-      toast.success("ChatGPT has responded!", {
-        id: notification,
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to fetch response from API");
+        return res.json();
+      })
+      .then(() => {
+        toast.success("ChatGPT has responded!", {
+          id: notification,
+        });
+      })
+      .catch((err) => {
+        console.error("Error in fetching API:", err);
+        toast.error("Failed to get a response from ChatGPT.", {
+          id: notification,
+        });
       });
-    })
-    .catch((err) => {
-      console.error("Error in fetching API:", err);
-      toast.error("Failed to get a response from ChatGPT.", {
-        id: notification,
-      });
-    });
   };
 
   return (
