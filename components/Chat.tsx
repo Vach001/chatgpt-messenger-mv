@@ -35,6 +35,7 @@ function Chat({ chatId }: Props) {
           <p> </p>
         </>
       )}
+      
       {messages?.docs.map((message) => (
         <Message key={message.id} message={message.data()} />
       ))}
