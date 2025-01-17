@@ -40,3 +40,5 @@ serviceAccountKey.json
 
 firebase.ts
 firebase-debug.log.github
+
+.vercel
