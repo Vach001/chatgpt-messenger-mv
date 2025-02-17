@@ -1,4 +1,3 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import query from "../../lib/queryApi";
 import type { NextApiRequest, NextApiResponse } from "next";
 import admin from "firebase-admin";
@@ -24,7 +23,7 @@ export default async function handler(
     return;
   }
 
-  //ChatGPT Query
+  // ChatGPT Query
   try {
     const response = await query(prompt, chatId, model);
 
